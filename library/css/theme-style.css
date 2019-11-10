@@ -1,0 +1,30 @@
+/*!
+Theme Name:         plate2
+Theme URI:          https://studio.bio
+Description:        Plate Tailwind CSS Theme
+Version:            0.0.1
+Author:             Joshua Michaels for studio.bio
+Author URI:         https://studio.bio/
+Text Domain:        platetheme
+License:            MIT
+License URI:        http://opensource.org/licenses/MIT
+*/
+
+@import 'tailwindcss/base';
+
+
+@import 'tailwindcss/components';
+
+/* purgecss start ignore */
+@import "partials/_base";
+@import "partials/_header";
+@import "partials/_layout";
+/*@import "partials/_pagination";
+@import "partials/_posts";
+@import "partials/_carbon";
+@import "partials/_comments"; */
+/* purgecss end ignore */
+
+  
+
+@import 'tailwindcss/utilities';

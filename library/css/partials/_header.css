@@ -1,0 +1,37 @@
+/******************************************************************
+Site Name:
+Author:
+Version:
+
+Stylesheet: Header Styles
+
+Put all of your extra header styles here. You probably won't
+need too much. Remember to let TailwindCSS do most of the
+work by adding classes to the html. 
+
+******************************************************************/
+
+header.header {
+    #inner-header {
+        #bloginfo {
+            #logo {}
+            #site-title {}
+        }
+        .primary-menu {
+            .main-menu {
+                .menu-item {
+                    @apply .px-2;
+                }
+            }
+        }
+    }
+}
+
+@screen below-sm {
+    // hides primary menu below sm breakpoint
+    .primary-menu {
+        display: none;
+    }
+}
+
+

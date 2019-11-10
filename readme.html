@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+
+<h1 id="platebystudio.bio">Plate by studio.bio</h1>
+
+<p><a href="https://github.com/joshuaiz/plate/releases/tag/v1.4.0"><img src="https://img.shields.io/github/release/joshuaiz/plate.svg" alt="Github Releases" /></a>
+<a href=""><img src="https://img.shields.io/github/last-commit/joshuaiz/plate.svg" alt="Github Last Commit" /></a>
+<a href="https://github.com/joshuaiz/plate/issues"><img src="https://img.shields.io/github/issues/joshuaiz/plate.svg" alt="GitHub issues" /></a>
+<a href="https://github.com/joshuaiz/plate/network"><img src="https://img.shields.io/github/forks/joshuaiz/plate.svg" alt="GitHub forks" /></a>
+<a href="https://github.com/joshuaiz/plate/stargazers"><img src="https://img.shields.io/github/stars/joshuaiz/plate.svg" alt="GitHub stars" /></a>
+<a href="https://github.com/joshuaiz/plate/blob/master/LICENSE"><img src="https://img.shields.io/github/license/joshuaiz/plate.svg" alt="GitHub license" /></a>
+<a href="https://twitter.com/intent/tweet?text=Wow:&amp;url=https%3A%2F%2Fgithub.com%2Fjoshuaiz%2Fplate"><img src="https://img.shields.io/twitter/url/https/github.com/joshuaiz/plate.svg?style=social" alt="Twitter" /></a></p>
+
+<p>See the <a href="https://github.com/joshuaiz/plate/blob/master/CHANGELOG.md">CHANGELOG</a> for the most recent updates.</p>
+
+<h2 id="asuperstripped-downwordpressstarterthemefordevelopers.">A super stripped-down WordPress starter theme for developers.</h2>
+
+<p><img src="https://studio.bio/images/plate_home_2019.png" alt="" />
+<em>Plate Home page with sidebar showing CSS Grid layout blocks.
+It&#8217;s almost as if it is not even there. (The colors are just for development to see your grid and are easily removed)</em></p>
+
+<h4 id="howtouseplate">How to use Plate?</h4>
+
+<p>Download or clone into your <code>/wp-content/themes/</code> folder and activate the theme in the WordPress admin in <code>Appearance &gt; Themes</code>.</p>
+
+<p>Plate uses modular Sass/SCSS files with CSS media queries that map to the default HTML elements in the theme, providing a quick way to get a project up-and-running. You may not need all of the supplied classes to style your theme, so just delete what you don&#8217;t use. On the other hand, if you need to style the user name for nested comments 3 levels deep, Plate is ready.</p>
+
+<p>You can find the modular scss files in <code>library/scss/</code> and then further broken down into <code>/breakpoints</code> for our most-used media queries, <code>/modules</code> for buttons, alerts, and forms and then <code>/partials</code> for grids, typography, functions, variables and anything else.</p>
+
+<p>All of the stylesheets are then imported via the <code>/library/scss/style.scss</code> file which is rendered to <code>/library/css/style.css</code> via your preprocessor.</p>
+
+<p><strong>Note:</strong> You will need to use a pre-processor to compile <code>.scss</code> (Sass) into <code>CSS</code>. We recommend <a href="https://codekitapp.com">CodeKit</a>. Just drop your theme into CodeKit and you&#8217;re all set. No configuration necessary. We love CodeKit <code>&lt;/&gt;</code>.</p>
+
+<p>We also have Grunt support built-in if that&#8217;s your thang.</p>
+
+<p><code>_base.scss</code> includes styles loaded for all devices. From there you can add styles to the respective breakpoint stylesheets for the devices that will use them.</p>
+
+<p>Fire up your favorite text editor, customize the default styles or add your own, and create your own theme templates from Plate&#8217;s defaults. That&#8217;s it!</p>
+
+<p>There are lots of comments throughout the theme so we encourage you to read them to help you with development. The theme and its respective comments are updated all the time.</p>
+
+<p><strong>Pro Tip:</strong> The included <code>plate_body_class()</code> function adds page-, post-, archive-, and taxonomy-specific CSS classes to your generated theme files. Leverage those to add your custom styles globally down to a per-post/page level allowing for quick customization.</p>
+
+<p>Classes are mirrored from the templates directly to the <code>SCSS</code> files so you can start customizing right away.</p>
+
+<h2 id="whatsincludedinplate">What&#8217;s Included In Plate?</h2>
+
+<p>Plate includes all of the files any robust WordPress theme should have: default page + post templates, archive + taxonomy templates, header, footer, search as well as extra page + post templates to handle full width layouts.</p>
+
+<p>Also included is a range of template parts that you can reuse anywhere in your project.</p>
+
+<p>Use, edit and customize what you like and delete what you don&#8217;t need. It&#8217;s your thing — do what you wanna do.</p>
+
+<h4 id="🎉asofjune212018plateis1yearold">🎉 As of June 21, 2018, Plate is 1 year old!</h4>
+
+<p>We want to say thank you to all those who have starred, forked and contributed to Plate over the past year. You have truly helped to make Plate better and better.</p>
+
+<h3 id="🔘whatsnewwithplate">🔘 What&#8217;s new with Plate?</h3>
+
+<ul>
+<li>Expanded Gutenberg support (updated 23 February 2019)</li>
+<li>Full WP Customizer support</li>
+<li>Expanded accessibility features</li>
+<li>Full CSS Grid support with starter grids</li>
+<li>Updated page-navi and related posts functions</li>
+<li>HTML schema built-in</li>
+<li>Complete <code>&lt;head&gt;</code> cleanup</li>
+</ul>
+
+<p>See the changelog for the most recent updates: https://github.com/joshuaiz/plate/blob/master/CHANGELOG.md</p>
+
+<h3 id="⭐️whyplate">⭐️ Why Plate?</h3>
+
+<p>We chose the name <strong>Plate</strong> because it is literally a blank platform upon which you can build your own custom WordPress theme(s). There&#8217;s no bloat or unnecessary fluff that comes with many pre-built themes so you can add in what you need and remove what you don&#8217;t. Yet, it comes with some smart defaults that facilitate getting your project up and running quickly: CSS Reset, modular scss, typography, a user agent detection script, page slug body classes, built in page-navi, template parts and custom page/archive/taxonomy templates.</p>
+
+<p>Plate evolved out of the amazing <a href="https://themble.com/bones/">Bones</a> starter theme by Eddie Machado. We first started with Bones in 2011 after looking at every starter theme out there and subsequently used it on hundreds of projects. What made Bones unique was Eddie&#8217;s exquisite comments throughout the theme. The Bones GitHub page is now gone (I has a sad) but I&#8217;ve uploaded an older version of Bones here if you want to check it out: <a href="https://studio.bio/docs/bones-theme.zip">Bones theme</a>.</p>
+
+<p>By fully ingesting Eddie&#8217;s insightful words while working with Bones, we learned how WordPress themes <em>really</em> work and it made us much better developers. Nevertheless, we found we were performing the same changes to Bones at the start of every project so we forked it into our own theme which has evolved into what is now <strong>Plate</strong>.</p>
+
+<p>In the spirit of Bones, we&#8217;ve kept in some of Eddie&#8217;s original comments and, where warranted, added our own throughout the theme to help developers of all levels. We see Plate as not only a great starter theme for advanced developers but a learning tool for those just starting with WordPress themes as well.</p>
+
+<figure>
+<img src="https://studio.bio/images/plate_theme_support.png" alt="" />
+<figcaption></figcaption>
+</figure>
+
+<p>We now use Plate for every single WordPress project so it is important to keep it up-to-date with the latest WordPress releases. Thus we have added support for Gutenberg, Flexbox, CSS Grid, schema, WooCommerce and more. Two years on from Bones, Plate includes more page templates, an updated default font stack, a custom post type plugin template, and some handy custom functions that we use all of the time.</p>
+
+<p>We&#8217;ve also included some extras and goodies that developers may find useful but kept those out of the main files like debuggers and scripts&#8230;copy those into the main files or delete them if you don&#8217;t need them.</p>
+
+<p>Edit this, fork it, change it, delete it - whatever. As Eddie might say: <em>It&#8217;s your world. But I hope you make something cool with it.</em></p>
+
+<h3 id="🔮thefutureofplate">🔮 The Future of Plate</h3>
+
+<p><strong>Gutenberg:</strong> Gutenberg is here! And Plate is ready. We&#8217;ve got full theme support for Gutenberg along with included classes and styles for all of the included default blocks.</p>
+
+<p><strong>CSS Grid:</strong> we are using CSS Grid on all new projects so as we get more familiar with edge cases and better default implementations, Plate will be updated accordingly.</p>
+
+<h3 id="🍱beyondplate">🍱 Beyond Plate</h3>
+
+<p>We are working on two different projects that complement Plate: 1) our own companion Gutenberg blocks that can be installed as a plugin; and 2) modular components from ACF fields to work with headless WP and React. Stay tuned!</p>
+
+<h3 id="❔faq">❔ FAQ</h3>
+
+<p><strong>Should I update Plate with existing projects?</strong><br />
+In short, no. Each version of Plate should be viewed as a moment in time. Future updates may work differently or break your theme. Once you&#8217;ve included a particular version in your project, stick with that version or use a newer version as a separate theme. This is how Bones worked and we decided to keep this strategy when updating so that Plate can evolve over time without worrying about backwards compatibility. You can always download a previous version of Plate from the <a href="https://github.com/joshuaiz/plate/releases">Releases page</a>.</p>
+
+<p><strong>What are the colored blocks in the screenshot?</strong><br />
+The colored block colors are added in the <code>_cssgrid.scss</code> stylesheet. They are there to help while setting up CSS Grid so you can see the content areas easier as you are defining your grid(s). We&#8217;ve found them extremely helpful so we kept them in. You don&#8217;t need to use the default Plate grid (and you probably should set up your own) but we are trying to push more people to use CSS Grid and the colors show how easy it is to set up. They are optional and purely for development so feel free to comment out the styles, change the colors or remove the <code>.grid</code> class completely (and not use CSS Grid). Whatever floats your boat.</p>
+
+<p><strong>I tested Plate with Theme Check and there are errors. What should I do?</strong><br />
+<a href="https://wordpress.org/plugins/theme-check/">Theme Check</a> is ideal if you are trying to get your theme validated for release on WordPress.org. That said, we use Theme Check and test before every GitHub release to see if we have any egregious errors in Plate. Mind you, Plate was created for our studio and not (necessarily) for general release. With that in mind, there are some things that will fail the check like not having <code>&lt;php wp_link_pages(); ?&gt;</code> which we don&#8217;t ever use as well as having a CPT plugin template included. We&#8217;re ok with those errors and as long as they don&#8217;t bother you, you can safely ignore.</p>
+
+<h3 id="⚡️otherstuffs">⚡️ Other stuffs</h3>
+
+<p>Designed by Joshua Michaels for studio.bio: https://studio.bio/</p>
+
+<p>With help from Jon Iler.</p>
+
+<p>License: WTFPL
+License URI: http://sam.zoy.org/wtfpl/</p>
+
+<p>Do whatever you want. Freedom, baby.</p>
+
+<h4 id="✨specialthanksto:">✨ Special Thanks to:</h4>
+
+<p>Eddie Machado — all credit is due to him and the original Bones collaborators: Paul Irish, Yoast, Andrew Rogers, David Dellanave and others.</p>
+
+<h4 id="🐞submitbugsorfixes:">🐞 Submit Bugs &amp; or Fixes:</h4>
+
+<p>https://github.com/joshuaiz/plate/issues<br />
+Thanks to @HardeepAsrani, @EnzoMartin and @thetwopct for enhancements and bug catches.</p>
+
+</body>
+</html>
+

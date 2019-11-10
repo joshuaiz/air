@@ -1,0 +1,101 @@
+/*--------------------------------------------
+Theme Name: Air
+Theme URI: https://studio.bio/themes/plate
+Text Domain: airtheme
+Description: Air is a super-minimal, stripped-down, HTML5, responsive, retina-ready starter WordPress theme for developers built with TailwindCSS.
+Author: Joshua Michaels for studio.bio
+Author URI: https://studio.bio/
+Version: 0.0.1
+Tags: accessibility-ready, translation-ready, microformats, rtl-language-support, full-width-template, footer-widgets, custom-header, custom-background, custom-logo, custom-menu, grid-layout, editor-style, theme-options, e-commerce
+License: WTFPL
+License URI: http://sam.zoy.org/wtfpl/. Do whatever you want with this. Copy it, fork it, change it. Do your thang.
+
+(You should update the above info with your own for your projects)
+----------------------------------------------
+
+
+****************************************
+* ERMAGERD, WHERE ARE MA STYLES??!?!?? *
+****************************************
+With Air, we are making a big leap by moving from Sass/SCSS in Plate to TailwindCSS
+which is based on PostCSS. Check out TailwindCSS here: https://tailwindcss.com/
+
+As a result of this big change, it made sense to create an all-new theme. Air was 
+forked from our Plate theme and then rebuilt from the ground up. Read on.
+
+The main stylesheet is found here: /library/css/theme-styles.css which includes all of
+the Tailwind base + utility styles as well as our custom imports. 
+
+Use `npm run dev` to process the styles or `npm run watch` to process on every change which
+will compile the styles to: /library/css/styles.css which is the stylesheet called in the theme.
+
+For production, run `npm run prod` to create a minified production build. We've included PurgeCSS
+which intelligently removes any Tailwind styles you are not using for production. Sweetness.
+
+See detailed instructions in the README.md. 
+
+Why TailwindCSS?
+TailwindCSS is a whole new way to think about styling with CSS and it will make your 
+life as a developer easier. Just trust me on this. I was skeptical at first too
+and I *love* using Sass/SCSS so hear me out.
+
+TailwindCSS is a *utility-first* framework and what that means is it comes with 
+pre-set utility classes that you can add to your html *right now*. In short,
+the CSS classes you add to your HTML do all the styling work so you will have to write
+very little CSS. This is huge. But your CSS will be small.
+
+Instead of coming up with non-intuitive class names and adding your own styles to each element, 
+with TailwindCSS you just add the classes you need to your markup. The classes are declarative
+and are reusable everywhere. Learn them once, use them everywhere.
+
+See this example from the docs: https://tailwindcss.com/docs/utility-first/
+
+Breaking out styles by media queries is no longer necessary as you can add breakpoint-specific 
+classes. This is true modular CSS that makes sense and is actually fun to use.
+
+Yet, you can still use a lot of the good things from Sass/SCSS like nested selectors, variables,
+and more. If you're dead-set on still using Sass/SCSS and a preprocessor you *can* still
+do that with a bit more configuration but with Tailwind you really won't need to.
+
+Sure, there's a little bit of a learning curve but that's only to learn the CSS
+classes that Tailwind provides. Once you've got a handle on those, your development
+will be faster, better, stronger, and you will become immortal. Or at least a better
+developer with more tools in your toolbox. You really just have to try it.
+
+Workflow
+PostCSS and Tailwind uses modern JavaScript tooling to process your stylesheets. What's cool
+about that is you can extend Tailwind with your own configuration and plugins creating a 
+completely customized setup for your particular theme.
+
+We've provided the proper boilerplate with Air for you to avoid most of the configuration
+pain points get up-and-running fast. Under the hood we're using Laravel Mix which is a really
+nice Webpack wrapper that allows running node modules anywhere. 
+
+Here's some more links if you want more info:
+
+https://dotdev.co/laravel-mix-wordpress/
+https://nerdcave.com/tailwind-cheat-sheet
+https://github.com/ericlbarnes/dotdev-2019 (another WP + Tailwind theme)
+
+
+/*
+WordPress Stuffs
+We use Theme Check (http://wordpress.org/plugins/theme-check/) to test every
+Plate release. Theme Check whines about not having these classes present even
+though they are in the REAL stylesheet in library/css/style.css. So that's why
+they are here. You don't need to touch these.
+*/
+
+.sticky {}
+
+/* DO NOT EDIT THIS */
+.gallery-caption {}
+
+/* THESE ARE USELESS */
+.bypostauthor {}
+
+.wp-caption {}
+
+.wp-caption-text {}
+
+/* THEY ARE ONLY TO KEEP THEME CHECK HAPPY */

@@ -1,0 +1,49 @@
+@screen below-sm {
+    .content-no-sidebar {
+        aside {
+            @apply hidden;
+        }
+    }
+}
+
+
+@screen md {
+
+    .content-sidebar {
+        @apply flex justify-between;
+        main {
+            @apply flex-1 w-2/3 pr-16;
+        }
+
+        aside {
+            @apply flex-shrink-0 w-1/3;
+        }
+    }
+    
+
+    .content-no-sidebar {
+        main {
+            @apply w-full p-0;
+        }
+
+        aside {
+            @apply hidden flex-none w-0;
+        }
+    }
+
+    .full-width {
+        @apply w-full;
+    }
+}
+
+@screen lg {
+    .content-sidebar {
+        main {
+            @apply w-8/12;
+        }
+
+        aside {
+            @apply w-4/12;
+        }
+    }
+}
