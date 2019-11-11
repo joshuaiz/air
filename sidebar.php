@@ -7,9 +7,9 @@
 */
 ?>
 
-<aside id="sidebar1" class="sidebar md:flex-shrink-0 md:w-1/3 lg:w-5/12" role="complementary">
+<aside id="sidebar1" class="sidebar" role="complementary">
 
-    <div class="inner-sidebar wrap">
+    <div class="inner-sidebar">
 
     	<?php if ( is_active_sidebar( 'sidebar1' ) ) : ?>
 
@@ -17,7 +17,7 @@
             
         <?php else : ?>
 
-            <!-- <?php _e( 'Add some widgets and they will appear here.', 'platetheme' );  ?> -->
+            <!-- <?php _e( 'Add some widgets and they will appear here.', 'airtheme' );  ?> -->
 
     	<?php endif; ?>
 

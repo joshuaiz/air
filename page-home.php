@@ -12,7 +12,7 @@
 
 	<div id="content" class="">
 
-		<div id="inner-content" class="px-6 max-w-7xl mx-auto content-sidebar">
+		<div id="inner-content" class="wrap content-sidebar">
 
 			<main id="main" class="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="https://schema.org/Blog">
 

@@ -1,9 +1,6 @@
 <!doctype html>
 
-<!--[if lt IE 7]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9 lt-ie8"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html <?php language_attributes(); ?> class="no-js lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!--> <html <?php html_schema(); ?> <?php language_attributes(); ?> class="no-js"><!--<![endif]-->
+<html <?php html_schema(); ?> <?php language_attributes(); ?> class="no-js">
 
 	<head>
 
@@ -44,20 +41,19 @@
         <?php // put font scripts like Typekit/Adobe Fonts here ?>
         <?php // end fonts ?>
 
-        <?php // wordpress head functions ?>
+        <?php // WordPress head functions ?>
         <?php wp_head(); ?>
-        <?php // end of wordpress head ?>
+        <?php // end of WordPress head ?>
 
     </head>
 
 	<body <?php body_class(); ?> itemscope itemtype="https://schema.org/WebPage">
 
-        <?php // remove grid classes below if you aren't using CSS Grid (but you should) ?>
-		<div id="container" class="">
+		<div id="container" class="container">
 
 			<header class="header" id="header" role="banner" itemscope itemtype="https://schema.org/WPHeader">
 
-                <div id="inner-header" class="max-w-7xl mx-auto px-6 py-4 flex items-center">
+                <div id="inner-header" class="wrap py-4 flex items-center">
 
                     <?php // updated with proper markup and wrapping div for organization ?>
                     <div id="bloginfo" itemscope itemtype="https://schema.org/Organization" class="flex items-center">
@@ -98,10 +94,10 @@
                         
                     </div>
 
-                    <nav class="header-nav primary-menu" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement" aria-label="<?php _e( 'Primary Menu ', 'platetheme' ); ?>">
+                    <nav class="header-nav primary-menu" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement" aria-label="<?php _e( 'Primary Menu ', 'airtheme' ); ?>">
 
                         <?php // added primary menu marker for accessibility ?>
-                        <h2 class="screen-reader-text hidden"><?php _e( 'Primary Menu', 'platetheme' ); ?></h2>
+                        <h2 class="screen-reader-text hidden"><?php _e( 'Primary Menu', 'airtheme' ); ?></h2>
 
                         <?php // see all default args here: https://developer.wordpress.org/reference/functions/wp_nav_menu/ ?>
 
@@ -109,7 +105,7 @@
 
                             'container' => false,                          // remove nav container
                             'container_class' => 'menu',                   // class of container (should you choose to use it)
-                            'menu' => __( 'The Main Menu', 'platetheme' ), // nav name
+                            'menu' => __( 'The Main Menu', 'airtheme' ), // nav name
                             'menu_class' => 'main-menu flex items-center',       // adding custom nav class
                             'theme_location' => 'main-nav',                // where it's located in the theme
                             )

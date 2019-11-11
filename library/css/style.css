@@ -5,7 +5,7 @@ Description:        Plate Tailwind CSS Theme
 Version:            0.0.1
 Author:             Joshua Michaels for studio.bio
 Author URI:         https://studio.bio/
-Text Domain:        platetheme
+Text Domain:        airtheme
 License:            MIT
 License URI:        http://opensource.org/licenses/MIT
 */
@@ -613,6 +613,8 @@ video {
 
 .container {
   width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 @media (min-width: 640px) {
@@ -645,6 +647,8 @@ html {
 }
 
 body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -682,6 +686,11 @@ p {
   margin-bottom: 1rem;
 }
 
+pre code {
+    /* if your code looks wonky, remove this */
+    white-space: pre-line;
+  }
+
 /******************************************************************
 Site Name:
 Author:
@@ -713,13 +722,30 @@ header.header #inner-header .primary-menu .main-menu .menu-item {
   }
 }
 
+.container {
+  /* fixes tailwind .container max-width default */
+  max-width: 100%;
+}
+
 @media (max-width: 639px) {
-    .content-no-sidebar aside {
+  .wrap {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+    .content-no-sidebar aside.sidebar {
       display: none;
     }
 }
 
 @media (min-width: 768px) {
+  .wrap {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
   .content-sidebar {
     display: -webkit-box;
     display: flex;
@@ -732,15 +758,15 @@ header.header #inner-header .primary-menu .main-menu .menu-item {
       width: 66.666667%;
       padding-right: 4rem;
     }
-    .content-sidebar aside {
+    .content-sidebar aside.sidebar {
       flex-shrink: 0;
-      width: 33.333333%;
+      width: 33.333333%
     }
     .content-no-sidebar main {
       width: 100%;
       padding: 0;
     }
-    .content-no-sidebar aside {
+    .content-no-sidebar aside.sidebar {
       display: none;
       -webkit-box-flex: 0;
               flex: none;
@@ -756,7 +782,7 @@ header.header #inner-header .primary-menu .main-menu .menu-item {
     .content-sidebar main {
       width: 66.666667%;
     }
-    .content-sidebar aside {
+    .content-sidebar aside.sidebar {
       width: 33.333333%;
     }
 }

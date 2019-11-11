@@ -22,15 +22,15 @@
     if ( get_the_author_meta( 'ID' ) ) {
         $byline = sprintf(
         /* translators: %s: post author */
-        __( 'by %s', 'platetheme' ),
+        __( 'by %s', 'airtheme' ),
         '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . get_the_author() . '</a></span>' );
 
         // Finally, let's write all of this to the page.
-        echo '<span class="posted-on">' . plate_time_link() . '</span><span class="byline"> ' . $byline . '</span>';
+        echo '<span class="posted-on">' . air_time_link() . '</span><span class="byline"> ' . $byline . '</span>';
 
     } else {
 
-        echo '<span class="posted-on">Posted on:' . plate_time_link() . '</span>';
+        echo '<span class="posted-on">Posted on:' . air_time_link() . '</span>';
 
     } ?>
 

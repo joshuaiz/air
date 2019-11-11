@@ -2,7 +2,7 @@
 
     <div class="post-thumbnail">
 
-    	<?php the_post_thumbnail( 'plate-thumb-300' ); ?>
+    	<?php the_post_thumbnail( 'air-thumb-300' ); ?>
 
     </div>
 

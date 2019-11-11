@@ -2,7 +2,7 @@
 	
 	<div id="content">
 
-		<div id="inner-content" class="wrap">
+		<div id="inner-content" class="wrap content-sidebar">
 
 			<main id="main" class="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="https://schema.org/Blog">
 
@@ -18,8 +18,8 @@
 
 						<div class="404-txt">
 
-							<h3><?php _e( 'I\'m sorry Dave, I\'m afraid I can\'t do that.', 'platetheme' ); ?></h3>
-							<p><?php _e( 'We couldn\'t find what you are looking for, please try searching.', 'platetheme' ); ?></p>
+							<h3><?php _e( 'I\'m sorry Dave, I\'m afraid I can\'t do that.', 'airtheme' ); ?></h3>
+							<p><?php _e( 'We couldn\'t find what you are looking for, please try searching.', 'airtheme' ); ?></p>
 
 						</div>
 
@@ -41,12 +41,12 @@
 
 				</article>
 
-			</main>
+            </main>
+            
+            <?php get_sidebar(); ?>
 
 		</div>
 
 	</div>
-
-    <?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

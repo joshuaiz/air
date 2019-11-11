@@ -7,11 +7,11 @@
 */
 ?>
 
-<?php get_header('full'); ?>
+<?php get_header(); ?>
 
 	<div id="content">
 
-		<div id="inner-content" class="wrap">
+		<div id="inner-content" class="wrap content-no-sidebar">
 
 			<main id="main" class="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="https://schema.org/Blog">
 

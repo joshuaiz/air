@@ -1,4 +1,4 @@
-# Plate by studio.bio
+# Air by studio.bio
 
 [![Github Releases](https://img.shields.io/github/release/joshuaiz/plate.svg)](https://github.com/joshuaiz/plate/releases/tag/v1.4.0)
 [![Github Last Commit](https://img.shields.io/github/last-commit/joshuaiz/plate.svg)]()

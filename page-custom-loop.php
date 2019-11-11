@@ -28,7 +28,7 @@
 
     <div id="content">
 
-        <div id="inner-content" class="wrap">
+        <div id="inner-content" class="wrap content-sidebar">
 
             <main id="main" class="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="https://schema.org/Blog">
 
@@ -43,13 +43,15 @@
                             <div class="byline-wrap">
 
                                 <?php // Get the author name; wrap it in a link.
-                                if ( get_the_author_meta( 'ID' ) ) { $byline = sprintf( __( 'by %s', 'platetheme' ), '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . get_the_author() . '</a></span>' );
+                                if ( get_the_author_meta( 'ID' ) ) { 
+                                    $byline = sprintf( __( 'by %s', 'airtheme' ), 
+                                    '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . get_the_author() . '</a></span>' );
 
-                                echo '<span class="posted-on">' . plate_time_link() . '</span><span class="byline"> ' . $byline . '</span>';
+                                    echo '<span class="posted-on">' . air_time_link() . '</span><span class="byline"> ' . $byline . '</span>';
 
-                                } else { echo '<span class="posted-on">Posted on:' . plate_time_link() . '</span>'; }
-
-                                ?>
+                                } else { 
+                                    echo '<span class="posted-on">Posted on:' . air_time_link() . '</span>'; 
+                                } ?>
                                 
                             </div>
 
@@ -71,7 +73,7 @@
 
                 <?php endwhile; ?>
 
-                    <?php plate_page_navi( $wp_query ); ?>
+                    <?php air_page_navi( $wp_query ); ?>
 
                 <?php else : ?>
 
@@ -81,10 +83,10 @@
 
             </main>
 
+            <?php get_sidebar(); ?>
+
         </div>
 
     </div>
-
-    <?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

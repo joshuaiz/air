@@ -1,6 +1,6 @@
 # Plate Theme Change Log + History
 
-For more information, please visit: https://studio.bio/themes/plate
+For more information, please visit: https://studio.bio/themes/air
 
 Author: Joshua Michaels for studio.bio with help from Jon Iler
 

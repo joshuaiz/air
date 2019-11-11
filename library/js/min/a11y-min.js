@@ -1,8 +1,8 @@
 /*------------------------------------
- * Theme: Plate by studio.bio
+ * Theme: Air by studio.bio
  * File: Accessibility (a11y) scripts file
  * Author: Joshua Michaels
- * URI: https://studio.bio/themes/plate
+ * URI: https://studio.bio/themes/air
  *------------------------------------
  *
  * Accessibility should be a priority in your theme. These

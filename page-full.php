@@ -11,7 +11,7 @@
 
 	<div id="content">
 
-		<div id="inner-content" class="max-w-7xl mx-auto px-6">
+		<div id="inner-content" class="w-full">
 
 			<main id="main" class="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="https://schema.org/Blog">
 

@@ -1,13 +1,18 @@
 module.exports = {
     theme: {
         extend: {
-            // Adds additional widths to max-w-
+            container: {
+                // fixes non-centered .container class default
+                center: true
+            },
+            // Adds additional widths to max-w-*
             maxWidth: {
                 '7xl': '80rem',
                 '8xl': '88rem',
                 '9xl': '96rem'
             },
             colors: {
+                // studio.bio colors; remove or add your own
                 'sb-blue': '#0056ac',
                 'sb-light-blue': '#99bbde',
                 'sb-dark-blue': '#004466',
@@ -20,6 +25,7 @@ module.exports = {
                 'sb-grey': '#808080'
             },
             screens: {
+                // additional 'below' media queries
                 'below-sm': { max: '639px' },
                 // => @media (max-width: 639px) { ... }
 

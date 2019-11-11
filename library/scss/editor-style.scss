@@ -11,8 +11,8 @@ For more info, check out the codex:
 http://codex.wordpress.org/Editor_Style
 
 NOTE: This file only loads in the classic editor, not for the
-Gutenberg editor. To add styles for Gutenbergm, use the 
-_gutenberg.scss file.
+Gutenberg editor. To add styles for Gutenberg, use the 
+gutenberg.css file.
 
 ******************************************************************/
 
@@ -20,7 +20,6 @@ _gutenberg.scss file.
 here http://codex.wordpress.org/Function_Reference/add_editor_style */
 body#tinymce.wp-editor {
 
-	// normalize: http://necolas.github.io/normalize.css/
 	@import "partials/normalize";
 
 	// Sass variables

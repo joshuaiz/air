@@ -1,6 +1,14 @@
+.container {
+    /* fixes tailwind .container max-width default */
+    max-width: 100%;
+} 
+
 @screen below-sm {
+    .wrap {
+        @apply px-6;
+    }
     .content-no-sidebar {
-        aside {
+        aside.sidebar {
             @apply hidden;
         }
     }
@@ -8,6 +16,9 @@
 
 
 @screen md {
+    .wrap {
+        @apply max-w-7xl mx-auto px-6;
+    }
 
     .content-sidebar {
         @apply flex justify-between;
@@ -15,18 +26,18 @@
             @apply flex-1 w-2/3 pr-16;
         }
 
-        aside {
-            @apply flex-shrink-0 w-1/3;
+        aside.sidebar {
+            @apply flex-shrink-0 w-1/3
         }
+
     }
     
-
     .content-no-sidebar {
         main {
             @apply w-full p-0;
         }
 
-        aside {
+        aside.sidebar {
             @apply hidden flex-none w-0;
         }
     }
@@ -42,7 +53,7 @@
             @apply w-8/12;
         }
 
-        aside {
+        aside.sidebar {
             @apply w-4/12;
         }
     }

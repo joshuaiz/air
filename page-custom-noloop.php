@@ -29,7 +29,7 @@
 
     <div id="content">
 
-        <div id="inner-content" class="wrap">
+        <div id="inner-content" class="wrap content-sidebar">
 
             <main id="main" class="main" role="main" itemscope itemprop="mainContentOfPage" itemtype="https://schema.org/Blog">
 
@@ -55,11 +55,13 @@
 
             </main>
 
+            <?php // remove the sidebar and remove `content-sidebar` class on #inner-content if you don't need it ?>
+            <?php get_sidebar(); ?>
+
         </div>
 
     </div>
 
-    <?php // remove the sidebar if you don't need it ?>
-    <?php get_sidebar(); ?>
+    
 
 <?php get_footer(); ?>

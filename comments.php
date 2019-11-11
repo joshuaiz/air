@@ -14,7 +14,7 @@ if ( post_password_required() ) {
 
     <?php if ( have_comments() ) : ?>
 
-        <h3 id="comments-title" class="h2"><?php comments_number( __( '<span>No</span> Comments', 'platetheme' ), __( '<span>One</span> Comment', 'platetheme' ), __( '<span>%</span> Comments', 'platetheme' ) );?></h3>
+        <h3 id="comments-title" class="h2"><?php comments_number( __( '<span>No</span> Comments', 'airtheme' ), __( '<span>One</span> Comment', 'airtheme' ), __( '<span>%</span> Comments', 'airtheme' ) );?></h3>
 
         <section class="commentlist">
 
@@ -24,7 +24,7 @@ if ( post_password_required() ) {
                 'avatar_size'       => 40,
                 'callback'          => 'plate_comments',
                 'type'              => 'all',
-                'reply_text'        => __('Reply', 'platetheme'),
+                'reply_text'        => __('Reply', 'airtheme'),
                 'page'              => '',
                 'per_page'          => '',
                 'reverse_top_level' => null,
@@ -40,8 +40,8 @@ if ( post_password_required() ) {
 
         	<nav class="navigation comment-navigation" role="navigation">
 
-              	<div class="comment-nav-prev"><?php previous_comments_link( __( '&larr; Previous Comments', 'platetheme' ) ); ?></div>
-              	<div class="comment-nav-next"><?php next_comments_link( __( 'More Comments &rarr;', 'platetheme' ) ); ?></div>
+              	<div class="comment-nav-prev"><?php previous_comments_link( __( '&larr; Previous Comments', 'airtheme' ) ); ?></div>
+              	<div class="comment-nav-next"><?php next_comments_link( __( 'More Comments &rarr;', 'airtheme' ) ); ?></div>
 
         	</nav>
 
@@ -49,7 +49,7 @@ if ( post_password_required() ) {
 
         <?php if ( ! comments_open() ) : ?>
 
-        	<p class="no-comments"><?php _e( 'Comments are closed.' , 'platetheme' ); ?></p>
+        	<p class="no-comments"><?php _e( 'Comments are closed.' , 'airtheme' ); ?></p>
 
         <?php endif; ?>
 

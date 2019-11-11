@@ -1,9 +1,9 @@
 <?php
 /*------------------------------------
-* Theme: Plate by studio.bio 
+* Theme: Air by studio.bio
 * File: Template dev functions file 
 * Author: Joshua Michaels
-* URI: https://studio.bio/themes/plate
+* URI: https://studio.bio/themes/air
 *------------------------------------
 */
 
@@ -20,9 +20,9 @@
 *
 */
 
-add_filter( 'plate_include', 'var_plate_include', 1000 );
+add_filter( 'plate_include', 'var_air_include', 1000 );
 
-function var_plate_include( $t ){
+function var_air_include( $t ){
     $GLOBALS['current_theme_template'] = basename($t);
     return $t;
 }

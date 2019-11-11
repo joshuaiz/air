@@ -1,23 +1,23 @@
 <?php
 /*------------------------------------
-* Theme: Plate by studio.bio 
+* Theme: Air by studio.bio 
 * File: Main functions file
 * Author: Joshua Michaels
-* URI: https://studio.bio/themes/plate
+* URI: https://studio.bio/themes/air
 *------------------------------------
 *
 * We've moved all of the theme functions to this single
 * file to keep things tidy. 
 *
 * Extra development and debugging functions can be found
-* in plate.php. Uncomment the below require_once below.
+* in air.php. Uncomment the below require_once below.
 *
 */
 
-/* Plate development and debug functions
+/* air development and debug functions
 (not required but helper stuff for debugging and development)
 */
-// require_once( 'library/plate.php' );
+// require_once( 'library/air.php' );
 
 /* WordPress Admin functions (for customizing the WP Admin)
 (also not required so comment it out if you don't need it)
@@ -25,58 +25,56 @@
 require_once( 'library/admin.php' );
 
 // WordPress Customizer functions and enqueues
-// include( get_template_directory_uri() . '/library/customizer.php' );
-
 require_once( 'library/customizer.php' );
 
 
 
 /************************************
- * PLATE LUNCH
+ * Air Takeoff (theme init function)
  * 
- * Let's get everything on the plate. Mmmmmmmm.
+ * Now calling all seats/all rows.
  * 
  ************************************/
 
-add_action( 'after_setup_theme', 'plate_lunch' );
+add_action( 'after_setup_theme', 'air_takeoff' );
 
-function plate_lunch() {
+function air_takeoff() {
 
     // editor style
     add_editor_style( get_stylesheet_directory_uri() . '/library/css/editor-style.css' );
 
     // let's get language support going, if you need it
-    load_theme_textdomain( 'platetheme', get_template_directory() . '/library/translation' );
+    load_theme_textdomain( 'airtheme', get_template_directory() . '/library/translation' );
 
     // cleanup the <head>
-    add_action( 'init', 'plate_head_cleanup' );
+    add_action( 'init', 'air_head_cleanup' );
 
     // remove WP version from RSS
-    add_filter( 'the_generator', 'plate_rss_version' );
+    add_filter( 'the_generator', 'air_rss_version' );
 
     // remove pesky injected css for recent comments widget
-    add_filter( 'wp_head', 'plate_remove_wp_widget_recent_comments_style', 1 );
+    add_filter( 'wp_head', 'air_remove_wp_widget_recent_comments_style', 1 );
 
     // clean up comment styles in the head
-    add_action( 'wp_head', 'plate_remove_recent_comments_style', 1 );
+    add_action( 'wp_head', 'air_remove_recent_comments_style', 1 );
 
     // clean up gallery output in wp
-    add_filter( 'gallery_style', 'plate_gallery_style' );
+    add_filter( 'gallery_style', 'air_gallery_style' );
 
     // enqueue the styles and scripts
-    add_action( 'wp_enqueue_scripts', 'plate_scripts_and_styles', 999 );
+    add_action( 'wp_enqueue_scripts', 'air_scripts_and_styles', 999 );
 
     // support the theme stuffs
-    plate_theme_support();
+    air_theme_support();
 
     // adding sidebars to Wordpress
-    add_action( 'widgets_init', 'plate_register_sidebars' );
+    add_action( 'widgets_init', 'air_register_sidebars' );
 
     // cleaning up <p> tags around images
-    add_filter( 'the_content', 'plate_filter_ptags_on_images' );
+    add_filter( 'the_content', 'air_filter_ptags_on_images' );
 
     // clean up the default WP excerpt
-    add_filter( 'excerpt_more', 'plate_excerpt_more' );
+    add_filter( 'excerpt_more', 'air_excerpt_more' );
 
     // new body_open() function added in WP 5.2
     // https://generatewp.com/wordpress-5-2-action-that-every-theme-should-use/
@@ -95,15 +93,15 @@ function plate_lunch() {
     }
 
 
-} /* end plate lunch */
+} /* end air takeoff */
 
 
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
-add_image_size( 'plate-image-600', 600, 600, true );
-add_image_size( 'plate-image-300', 300, 300, true );
-add_image_size( 'plate-image-150', 150, 150, true );
+add_image_size( 'air-image-600', 600, 600, true );
+add_image_size( 'air-image-300', 300, 300, true );
+add_image_size( 'air-image-150', 150, 150, true );
 
 /*
 to add more sizes, simply copy a line from above
@@ -117,23 +115,23 @@ inside the thumbnail function.
 
 For example, to call the 300 x 100 sized image,
 we would use the function:
-<?php the_post_thumbnail( 'plate-image-300' ); ?>
+<?php the_post_thumbnail( 'air-image-300' ); ?>
 for the 600 x 150 image:
-<?php the_post_thumbnail( 'plate-image-600' ); ?>
+<?php the_post_thumbnail( 'air-image-600' ); ?>
 
 You can change the names and dimensions to whatever
 you like. Enjoy!
 */
 
-add_filter( 'image_size_names_choose', 'plate_custom_image_sizes' );
+add_filter( 'image_size_names_choose', 'air_custom_image_sizes' );
 
-function plate_custom_image_sizes( $sizes ) {
+function air_custom_image_sizes( $sizes ) {
 
     return array_merge( $sizes, array(
 
-        'plate-image-600' => __('600px by 600px', 'platetheme'),
-        'plate-image-300' => __('300px by 300px', 'platetheme'),
-        'plate-image-150' => __('150px by 150px', 'platetheme'),
+        'air-image-600' => __('600px by 600px', 'airtheme'),
+        'air-image-300' => __('300px by 300px', 'airtheme'),
+        'air-image-150' => __('150px by 150px', 'airtheme'),
 
         ) 
     );
@@ -149,14 +147,14 @@ new image size.
 
 /************* ACTIVE SIDEBARS ********************/
 
-// Sidebars & Widgetizes Areas
-function plate_register_sidebars() {
+// Sidebars & Widgetized Areas
+function air_register_sidebars() {
 
 	register_sidebar( array(
 
             'id' => 'sidebar1',
-            'name' => __( 'Sidebar 1', 'platetheme' ),
-            'description' => __( 'The first (primary) sidebar.', 'platetheme' ),
+            'name' => __( 'Sidebar 1', 'airtheme' ),
+            'description' => __( 'The first (primary) sidebar.', 'airtheme' ),
             'before_widget' => '<div id="%1$s" class="widget %2$s">',
             'after_widget' => '</div>',
             'before_title' => '<h4 class="widgettitle">',
@@ -176,8 +174,8 @@ function plate_register_sidebars() {
 	register_sidebar( array(
 
 		'id' => 'sidebar2',
-		'name' => __( 'Sidebar 2', 'platetheme' ),
-		'description' => __( 'The second (secondary) sidebar.', 'platetheme' ),
+		'name' => __( 'Sidebar 2', 'airtheme' ),
+		'description' => __( 'The second (secondary) sidebar.', 'airtheme' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
@@ -203,7 +201,7 @@ Blah blah blah.
 // Adding a custom gravatar. Customize this to add your own. Or delete it. It's totally up to you.
 add_filter( 'avatar_defaults', 'new_default_avatar' );
 
-function new_default_avatar ( $avatar_defaults ) {
+function new_default_avatar( $avatar_defaults ) {
 
     //Set the URL where the image file for your avatar is located
     $new_avatar_url = get_stylesheet_directory_uri() . '/library/images/custom-gravatar.png';
@@ -217,7 +215,7 @@ function new_default_avatar ( $avatar_defaults ) {
 }
 
 // Comment Layout
-function plate_comments( $comment, $args, $depth ) {
+function air_comments( $comment, $args, $depth ) {
 
    $GLOBALS['comment'] = $comment; ?>
 
@@ -241,17 +239,17 @@ function plate_comments( $comment, $args, $depth ) {
                   $bgauthemail = get_comment_author_email();
                 ?>
 
-                <img data-gravatar="//www.gravatar.com/avatar/<?php echo md5( $bgauthemail ); ?>?s=256" class="load-gravatar avatar avatar-48 photo" height="64" width="64" src="<?php echo get_theme_file_uri(); ?>/library/images/custom-gravatar.png" />
+                <img data-gravatar="//www.gravatar.com/avatar/<?php echo md5( $bgauthemail ); ?>?s=256" class="load-gravatar avatar avatar-48 photo" height="64" width="64" src="<?php echo get_template_directory_uri(); ?>/library/images/custom-gravatar.png" />
 
                 <?php // end custom gravatar call ?>
 
                 <div class="comment-meta">
 
-                    <?php printf(__( '<cite class="fn">%1$s</cite> %2$s', 'platetheme' ), get_comment_author_link(), edit_comment_link(__( '(Edit)', 'platetheme' ),'  ','') ) ?>
+                    <?php printf(__( '<cite class="fn">%1$s</cite> %2$s', 'airtheme' ), get_comment_author_link(), edit_comment_link(__( '(Edit)', 'airtheme' ),'  ','') ) ?>
 
                     <time datetime="<?php echo comment_time('Y-m-j'); ?>">
 
-                        <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__( 'F jS, Y', 'platetheme' )); ?> </a>
+                        <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>"><?php comment_time(__( 'F jS, Y', 'airtheme' )); ?> </a>
 
                     </time>
                 
@@ -263,7 +261,7 @@ function plate_comments( $comment, $args, $depth ) {
 
                 <div class="alert alert-info">
 
-                    <p><?php _e( 'Your comment is awaiting moderation.', 'platetheme' ) ?></p>
+                    <p><?php _e( 'Your comment is awaiting moderation.', 'airtheme' ) ?></p>
 
                 </div>
 
@@ -292,11 +290,11 @@ function plate_comments( $comment, $args, $depth ) {
 Use this to add Google or other web fonts.
 */
 
-// add_action( 'wp_enqueue_scripts', 'plate_fonts' );
+// add_action( 'wp_enqueue_scripts', 'air_fonts' );
 
-// function plate_fonts() {
+// function air_fonts() {
 
-//     wp_enqueue_style( 'plate-fonts', '//fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,' );
+//     wp_enqueue_style( 'air-fonts', '//fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,' );
 
 // }
 
@@ -337,12 +335,12 @@ function html_schema() {
 
 /*********************************
 WP_HEAD CLEANUP
-The default wordpress head is a mess. 
+The default WordPress head is a mess. 
 Let's clean it up by removing all 
 the junk we don't need.
 **********************************/
 
-function plate_head_cleanup() {
+function air_head_cleanup() {
 
     // category feeds
     remove_action( 'wp_head', 'feed_links_extra', 3 );
@@ -369,23 +367,23 @@ function plate_head_cleanup() {
     remove_action( 'wp_head', 'wp_generator' );
 
     // remove WP version from css
-    add_filter( 'style_loader_src', 'plate_remove_wp_ver_css_js', 9999 );
+    add_filter( 'style_loader_src', 'air_remove_wp_ver_css_js', 9999 );
 
     // remove WP version from scripts
-    add_filter( 'script_loader_src', 'plate_remove_wp_ver_css_js', 9999 );
+    add_filter( 'script_loader_src', 'air_remove_wp_ver_css_js', 9999 );
 
-} /* end plate head cleanup */
+} /* end air head cleanup */
 
 
 // remove WP version from RSS
-function plate_rss_version() {
+function air_rss_version() {
 
     return ''; // it's as if it is not even there
 
 }
 
 // remove WP version from scripts
-function plate_remove_wp_ver_css_js( $src ) {
+function air_remove_wp_ver_css_js( $src ) {
 
     if ( strpos( $src, 'ver=' ) )
 
@@ -395,7 +393,7 @@ function plate_remove_wp_ver_css_js( $src ) {
 }
 
 // remove injected CSS for recent comments widget
-function plate_remove_wp_widget_recent_comments_style() {
+function air_remove_wp_widget_recent_comments_style() {
 
     if ( has_filter( 'wp_head', 'wp_widget_recent_comments_style' ) ) {
 
@@ -404,7 +402,7 @@ function plate_remove_wp_widget_recent_comments_style() {
 }
 
 // remove injected CSS from recent comments widget
-function plate_remove_recent_comments_style() {
+function air_remove_recent_comments_style() {
 
     global $wp_widget_factory;
 
@@ -415,7 +413,7 @@ function plate_remove_recent_comments_style() {
 }
 
 // remove injected CSS from gallery
-function plate_gallery_style($css) {
+function air_gallery_style($css) {
 
     return preg_replace( "!<style type='text/css'>(.*?)</style>!s", '', $css );
 
@@ -427,34 +425,35 @@ SCRIPTS & ENQUEUEING
 *********************/
 
 // loading modernizr and jquery, comment reply and custom scripts
-function plate_scripts_and_styles() {
+function air_scripts_and_styles() {
 
     global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
 
     if ( !is_admin() ) {
 
-        // modernizr (3.6.0 2018-04-17)
-        // wp_enqueue_script( 'modernizr', get_theme_file_uri() . '/library/js/libs/modernizr-custom-min.js', array(), '3.6.0', false );
+        /**
+         * Note: we have removed Modernizr but if you need it, go here and create your custom build:
+         * https://modernizr.com
+         * 
+         * Then uncomment the enqueue below, replacing the filename with your modernizr script.
+         */ 
+        // wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/library/js/libs/your-modernizr-build.js', array(), '3.6.0', false );
 
         // register main stylesheet
-        wp_enqueue_style( 'plate-stylesheet', get_theme_file_uri() . '/library/css/style.css', array(), '', 'all' );
-
-        // ie-only style sheet
-        wp_enqueue_style( 'plate-ie-only', get_theme_file_uri() . '/library/css/ie.css', array(), '' );
+        wp_enqueue_style( 'air-stylesheet', get_template_directory_uri() . '/library/css/style.css', array(), '', 'all' );
 
         // comment reply script for threaded comments
         if ( is_singular() AND comments_open() AND ( get_option('thread_comments') == 1 )) { wp_enqueue_script( 'comment-reply' ); }
 
         // adding scripts file in the footer
-        wp_enqueue_script( 'plate-js', get_theme_file_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
+        wp_enqueue_script( 'air-js', get_template_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
 
         // accessibility (a11y) scripts
-        wp_enqueue_script( 'plate-a11y', get_theme_file_uri() . '/library/js/a11y.js', array( 'jquery' ), '', true );
+        wp_enqueue_script( 'air-a11y', get_template_directory_uri() . '/library/js/a11y.js', array( 'jquery' ), '', true );
 
-        $wp_styles->add_data( 'plate-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
 
-        // plate extra scripts. Uncomment to use. Or better yet, copy what you need to the main scripts folder or on the page(s) you need it
-        // wp_enqueue_script( 'plate-extra-js', get_theme_file_uri() . '/library/js/extras/extra-scripts.js', array( 'jquery' ), '', true );
+        // air extra scripts. Uncomment to use. Or better yet, copy what you need to the main scripts folder or on the page(s) you need it
+        // wp_enqueue_script( 'air-extra-js', get_template_directory_uri() . '/library/js/extras/extra-scripts.js', array( 'jquery' ), '', true );
 
     }
 }
@@ -477,11 +476,11 @@ function in case you don't need them.
  * 
  */
 
-add_action( 'enqueue_block_editor_assets', 'plate_block_editor_styles' );
+add_action( 'enqueue_block_editor_assets', 'air_block_editor_styles' );
 
-function plate_block_editor_styles() {
+function air_block_editor_styles() {
     
-    wp_enqueue_style( 'plate-block-editor-styles', get_theme_file_uri( '/library/css/editor.css' ), false, '1.0', 'all' );
+    wp_enqueue_style( 'air-block-editor-styles', get_template_directory_uri( '/library/css/editor/editor.css' ), false, '1.0', 'all' );
 
 }
 
@@ -491,11 +490,11 @@ function plate_block_editor_styles() {
  * Enqueue front end styles for Gutenberg.
  * 
  */
-add_action( 'enqueue_block_assets', 'plate_gutenberg_styles' );
+add_action( 'enqueue_block_assets', 'air_gutenberg_styles' );
 
-function plate_gutenberg_styles() {
+function air_gutenberg_styles() {
 
-    wp_enqueue_style( 'plate-gutenberg-styles', get_theme_file_uri( '/library/css/gutenberg.css' ), false, '1.0', 'all' );
+    wp_enqueue_style( 'air-gutenberg-styles', get_template_directory_uri( '/library/css/editor/gutenberg.css' ), false, '1.0', 'all' );
 
 }
 
@@ -546,9 +545,9 @@ function disable_emojicons_tinymce( $plugins ) {
 * I'm commenting this out by default. Why? Because Gravity Forms *requires* it
 * for some form functions to work...***eye roll***. 
 */
-// add_action( 'wp_default_scripts', 'plate_dequeue_jquery_migrate' );
+// add_action( 'wp_default_scripts', 'air_dequeue_jquery_migrate' );
 
-// function plate_dequeue_jquery_migrate( $scripts ) {
+// function air_dequeue_jquery_migrate( $scripts ) {
 
 //     if (! empty( $scripts->registered['jquery'] ) ) {
 
@@ -583,9 +582,9 @@ function disable_emojicons_tinymce( $plugins ) {
 // This only works for the main content box, not using ACF or other page builders.
 // Added small bit of javascript in scripts.js that will work everywhere. 
 // Keeping this in in case people are still using it.
-add_filter('the_content', 'plate_filter_ptags_on_images');
+add_filter('the_content', 'air_filter_ptags_on_images');
 
-function plate_filter_ptags_on_images( $content ) {
+function air_filter_ptags_on_images( $content ) {
 
     return preg_replace('/<pp>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 
@@ -593,10 +592,10 @@ function plate_filter_ptags_on_images( $content ) {
 
 
 // Simple function to remove the [...] from excerpt and add a 'Read More »' link.
-function plate_excerpt_more($more) {
+function air_excerpt_more($more) {
     global $post;
     // edit here if you like
-    return '...  <a class="excerpt-read-more" href="'. get_permalink( $post->ID ) . '" title="'. __( 'Read ', 'platetheme' ) . esc_attr( get_the_title( $post->ID ) ).'">'. __( 'Read more &raquo;', 'platetheme' ) .'</a>';
+    return '...  <a class="excerpt-read-more" href="'. get_permalink( $post->ID ) . '" title="'. __( 'Read ', 'airtheme' ) . esc_attr( get_the_title( $post->ID ) ).'">'. __( 'Read more &raquo;', 'airtheme' ) .'</a>';
 }
 
 
@@ -606,7 +605,7 @@ THEME SUPPORT
 *********************/
 
 // support all of the theme things
-function plate_theme_support() {
+function air_theme_support() {
 
     // wp thumbnails (see sizes above)
     add_theme_support( 'post-thumbnails' );
@@ -637,7 +636,7 @@ function plate_theme_support() {
             'flex-height'        => true,
             'header-text'        => true,
             'uploads'            => true,
-            'wp-head-callback'   => 'plate_style_header',
+            'wp-head-callback'   => 'air_style_header',
 
         ) 
     );
@@ -660,8 +659,8 @@ function plate_theme_support() {
     // To add another menu, uncomment the second line and change it to whatever you want. You can have even more menus.
     register_nav_menus( array(
 
-        'main-nav' => __( 'The Main Menu', 'platetheme' ),   // main nav in header
-        // 'footer-links' => __( 'Footer Links', 'platetheme' ) // secondary nav in footer. Uncomment to use or edit.
+        'main-nav' => __( 'The Main Menu', 'airtheme' ),   // main nav in header
+        // 'footer-links' => __( 'Footer Links', 'airtheme' ) // secondary nav in footer. Uncomment to use or edit.
 
         )
     );
@@ -762,7 +761,7 @@ function plate_theme_support() {
     // To limit the Gutenberg editor to your theme colors, uncomment this
     // add_theme_support( 'disable-custom-colors' );
 
-} /* end plate theme support */
+} /* end air theme support */
 
 
 /** 
@@ -814,7 +813,7 @@ RELATED POSTS FUNCTION
 *********************/
 
 /**
- * Plate Related Posts.
+ * air Related Posts.
  * 
  * Adapted from this gist:
  * https://gist.github.com/claudiosanches/3167825
@@ -824,9 +823,9 @@ RELATED POSTS FUNCTION
  *
  * Usage:
  * To show related by categories:
- * Add in single.php <?php plate_related_posts(); ?>.
+ * Add in single.php <?php air_related_posts(); ?>.
  * To show related by tags:
- * Add in single.php <?php plate_related_posts('tag'); ?>.
+ * Add in single.php <?php air_related_posts('tag'); ?>.
  *
  * @global array $post
  *   WP global post.
@@ -840,7 +839,7 @@ RELATED POSTS FUNCTION
  *   Set the widget title.
  */
 
-function plate_related_posts( $display = 'category', $qty = 5, $images = true, $title = 'Related Posts' ) {
+function air_related_posts( $display = 'category', $qty = 5, $images = true, $title = 'Related Posts' ) {
     global $post;
     $show = false;
     $post_qty = (int) $qty;
@@ -917,7 +916,7 @@ PAGE NAVI
 * to add your query variable as an argument and this 
 * function will play nice. Example:
 * 
-* plate_page_navi( $query );
+* air_page_navi( $query );
 *
 * Also make sure your query has pagination set, e.g.:
 * $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -928,7 +927,7 @@ PAGE NAVI
 *
 */
 
-function plate_page_navi( $wp_query ) {
+function air_page_navi( $wp_query ) {
     $pages = $wp_query->max_num_pages;
     $big = 999999999; // need an unlikely integer
 
@@ -956,15 +955,15 @@ function plate_page_navi( $wp_query ) {
 
 /*
 ****************************************
-*        PLATE SPECIAL FUNCTIONS       *
+*        air SPECIAL FUNCTIONS       *
 ****************************************
 */
 
 // Body Class functions
 // Adds more slugs to body class so we can style individual pages + posts.
-add_filter( 'body_class', 'plate_body_class' );
+add_filter( 'body_class', 'air_body_class' );
 
-function plate_body_class( $classes ) {
+function air_body_class( $classes ) {
 
     // Adds new classes for blogroll page (list of blog posts)
     // good for containing full-width images from Gutenberg
@@ -1045,9 +1044,9 @@ function plate_body_class( $classes ) {
 * Hook into the 'admin_print_footer_scripts' action
 *
 */
-add_action( 'admin_print_footer_scripts', 'plate_custom_quicktags' );
+add_action( 'admin_print_footer_scripts', 'air_custom_quicktags' );
 
-function plate_custom_quicktags() {
+function air_custom_quicktags() {
 
     if ( wp_script_is( 'quicktags' ) ) { ?>
 
@@ -1082,34 +1081,34 @@ function plate_custom_quicktags() {
   
 // Post Author function (from WP Twenty Seventeen theme)
 // We use this in the byline template part but included here in case you want to use it elsewhere.
-if ( ! function_exists( 'plate_posted_on' ) ) :
+if ( ! function_exists( 'air_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
-function plate_posted_on() {
+function air_posted_on() {
 
     // Get the author name; wrap it in a link.
     $byline = sprintf(
 
     /* translators: %s: post author */
-    __( 'by %s', 'platetheme' ),
+    __( 'by %s', 'airtheme' ),
     '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . get_the_author() . '</a></span>'
 
     );
 
     // Finally, let's write all of this to the page.
-    echo '<span class="posted-on">' . plate_time_link() . '</span><span class="byline"> ' . $byline . '</span>';
+    echo '<span class="posted-on">' . air_time_link() . '</span><span class="byline"> ' . $byline . '</span>';
 
 }
 endif;
 
 
 // Post Time function (from WP Twenty Seventeen theme)
-if ( ! function_exists( 'plate_time_link' ) ) :
+if ( ! function_exists( 'air_time_link' ) ) :
 /**
  * Gets a nicely formatted string for the published date.
  */
-function plate_time_link() {
+function air_time_link() {
 
     $time_string = 'Posted on: <time class="entry-date published updated" datetime="%1$s">%2$s</time>';
     if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
@@ -1128,7 +1127,7 @@ function plate_time_link() {
     return sprintf(
 
         /* translators: %s: post date */
-        __( '<span class="screen-reader-text">Posted on</span> %s', 'platetheme' ),
+        __( '<span class="screen-reader-text">Posted on</span> %s', 'airtheme' ),
         $time_string
 
     );
@@ -1151,28 +1150,28 @@ endif;
  * 
  */
 
-function plate_add_dashboard_widgets() {
+function air_add_dashboard_widgets() {
 
     // Call the built-in dashboard widget function with our callback
     wp_add_dashboard_widget(
-        'plate_dashboard_widget', // Widget slug. Also the HTML id for styling in admin.scss.
-        __( 'Welcome to Plate!', 'platetheme' ), // Title.
-        'plate_dashboard_widget_init' // Display function (below)
+        'air_dashboard_widget', // Widget slug. Also the HTML id for styling in admin.scss.
+        __( 'Welcome to air!', 'airtheme' ), // Title.
+        'air_dashboard_widget_init' // Display function (below)
     );
 }
-add_action( 'wp_dashboard_setup', 'plate_add_dashboard_widgets' );
+add_action( 'wp_dashboard_setup', 'air_add_dashboard_widgets' );
 
 // Create the function to output the contents of our Dashboard Widget.
-function plate_dashboard_widget_init() {
+function air_dashboard_widget_init() {
 
     // helper vars for links and images and stuffs.
     $url = get_admin_url();
-    $img = get_theme_file_uri() . '/library/images/logo.svg';
+    $img = get_template_directory_uri() . '/library/images/logo.svg';
 
     echo '<div class="dashboard-image"><img src=' . $img . ' width="96" height="96" /></div>';
     echo '<h3>You\'ve arrived at the WordPress Dashboard aka the \'Site Admin\' or \'WordPress Admin\' or simply the \'Admin\'.</h3>'; 
-    echo '<p><strong>Thank you for using the <a href="https://github.com/joshuaiz/plate" target="_blank">Plate</a> theme by <a href="https://studio.bio/" target="_blank">studio.bio</a>!</strong></p>'; 
-    echo '<p>You can add your own message(s) or HTML here. Edit the <code>plate_dashboard_widget_init()</code> function in <code>functions.php</code> at line 1225. Styles are in <code>admin.scss</code>. Or if you don\'t want or need this, just delete the function. Have it your way.</p>';
+    echo '<p><strong>Thank you for using the <a href="https://github.com/joshuaiz/air" target="_blank">air</a> theme by <a href="https://studio.bio/" target="_blank">studio.bio</a>!</strong></p>'; 
+    echo '<p>You can add your own message(s) or HTML here. Edit the <code>air_dashboard_widget_init()</code> function in <code>functions.php</code> at line 1225. Styles are in <code>admin.scss</code>. Or if you don\'t want or need this, just delete the function. Have it your way.</p>';
     echo '<p>This is a great place for site instructions, links to help or resources, and to add your contact info for clients.</p>';
     echo '<p>Make sure to remind them about the <code>Screen Options</code> tab on the top right. Often clients do not know about that and that they can show or hide or rearrange these Dashboard Widgets or show/hide boxes on any edit screen.</p>';
     

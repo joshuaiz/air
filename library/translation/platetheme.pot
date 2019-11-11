@@ -402,7 +402,7 @@ msgid "Plate"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "https://studio.bio/themes/plate"
+msgid "https://studio.bio/themes/air"
 msgstr ""
 
 #. Description of the plugin/theme

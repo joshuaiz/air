@@ -1,5 +1,5 @@
 /*------------------------------------
- * Theme: Template by studio.bio 
+ * Theme: TemAir by studio.bio 
  * File: Extra Scripts File
  * Author: Joshua Michaels
  * URI: https://studio.bio/template

@@ -2,11 +2,11 @@
 
 	<div id="content">
 
-		<div id="inner-content" class="wrap">
+		<div id="inner-content" class="wrap content-sidebar">
 
 			<main id="main" class="main" role="main">
 
-				<h1 class="archive-title"><span><?php _e( 'Search Results for:', 'platetheme' ); ?></span> <?php echo esc_attr(get_search_query()); ?></h1>
+				<h1 class="archive-title"><span><?php _e( 'Search Results for:', 'airtheme' ); ?></span> <?php echo esc_attr(get_search_query()); ?></h1>
 
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -40,7 +40,7 @@
 
 				<?php endwhile; ?>
 
-                    <?php plate_page_navi( $wp_query ); ?>
+                    <?php air_page_navi( $wp_query ); ?>
 
                 <?php else : ?>
 
@@ -48,12 +48,12 @@
 
                 <?php endif; ?>
 
-			</main>
+            </main>
+            
+            <?php get_sidebar(); ?>
 
 		</div>
 
 	</div>
-
-    <?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

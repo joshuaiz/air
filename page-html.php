@@ -17,7 +17,7 @@
 
     <div id="content">
 
-    	<div id="inner-content" class="wrap">
+    	<div id="inner-content" class="wrap content-no-sidebar">
 
     		<main id="main" class="" role="main" itemscope itemprop="mainContentOfPage" itemtype="https://schema.org/Blog">
 
@@ -496,10 +496,10 @@
 
 	        </main>
 
+            <?php get_sidebar();?>
+
 	    </div>
 
     </div>
-
-    <?php get_sidebar();?>
 
 <?php get_footer();?>
