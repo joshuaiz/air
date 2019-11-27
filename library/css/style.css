@@ -787,6 +787,14 @@ header.header #inner-header .primary-menu .main-menu .menu-item {
     }
 }
 
+textarea, input[type="text"], input[type="email"], input[type="password"], input[type="phone"], input[type="url"] {
+  border: 1px solid #aaa;
+}
+
+form label {
+    vertical-align: top;
+  }
+
 /*@import "partials/_pagination";
 @import "partials/_posts";
 @import "partials/_carbon";

@@ -20,7 +20,7 @@
 *
 */
 
-add_filter( 'plate_include', 'var_air_include', 1000 );
+add_filter( 'air_include', 'var_air_include', 1000 );
 
 function var_air_include( $t ){
     $GLOBALS['current_theme_template'] = basename($t);

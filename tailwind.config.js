@@ -12,7 +12,7 @@ module.exports = {
                 '9xl': '96rem'
             },
             colors: {
-                // studio.bio colors; remove or add your own
+                // studio.bio colors; remove and/or add your own
                 'sb-blue': '#0056ac',
                 'sb-light-blue': '#99bbde',
                 'sb-dark-blue': '#004466',

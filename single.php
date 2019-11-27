@@ -10,7 +10,7 @@
                 <?php get_template_part( 'templates/single', 'loop'); ?>
                 
                 <?php // related posts function; uncomment below to use ?>
-                <?php // plate_related_posts(); ?>
+                <?php air_related_posts(); ?>
 
             </main>
             

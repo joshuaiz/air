@@ -1,6 +1,6 @@
 <?php
 /*
-The comments page for Plate
+The comments page for Air
 */
 
 // don't load it if you can't comment

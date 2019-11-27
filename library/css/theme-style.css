@@ -19,6 +19,7 @@ License URI:        http://opensource.org/licenses/MIT
 @import "partials/_base";
 @import "partials/_header";
 @import "partials/_layout";
+@import "partials/_forms";
 /*@import "partials/_pagination";
 @import "partials/_posts";
 @import "partials/_carbon";

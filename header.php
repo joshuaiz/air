@@ -8,7 +8,7 @@
          * updated with non-blocking order
          * see here: https://csswizardry.com/2018/11/css-and-network-performance/
          * 
-         * In short, place any js here that doesn't need to act on css before any css to
+         * In short, place any js here (like Google Analytics) that doesn't need to act on css before any css to
          * speed up page loads.
          */
         ?>
@@ -22,23 +22,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <?php // favicons (for more: http://www.jonathantneal.com/blog/understand-the-favicon/) ?>
-        <link rel="icon" href="<?php echo get_theme_file_uri(); ?>/favicon.png">
+        <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
         <!--[if IE]>
-            <link rel="shortcut icon" href="<?php echo get_theme_file_uri(); ?>/favicon.ico">
+            <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
         <![endif]-->
 
         <!-- Apple Touch Icon -->
-        <link rel="apple-touch-icon" href="<?php echo get_theme_file_uri(); ?>/library/images/apple-touch-icon.png">
+        <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/library/images/apple-touch-icon.png">
 
         <!-- Safari Pinned Tab Icon -->
-        <link rel="mask-icon" href="<?php echo get_theme_file_uri(); ?>/library/images/icon.svg" color="#0088cc">
+        <link rel="mask-icon" href="<?php echo get_template_directory_uri(); ?>/library/images/icon.svg" color="#0088cc">
 
         <?php // updated pingback. Thanks @HardeepAsrani https://github.com/HardeepAsrani ?>
         <?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
             <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
         <?php endif; ?>
 
-        <?php // put font scripts like Typekit/Adobe Fonts here ?>
+        <?php // put font scripts like Typekit/Adobe Fonts/Google Fonts here ?>
         <?php // end fonts ?>
 
         <?php // WordPress head functions ?>
@@ -103,11 +103,11 @@
 
                         <?php wp_nav_menu( array(
 
-                            'container' => false,                          // remove nav container
-                            'container_class' => 'menu',                   // class of container (should you choose to use it)
-                            'menu' => __( 'The Main Menu', 'airtheme' ), // nav name
-                            'menu_class' => 'main-menu flex items-center',       // adding custom nav class
-                            'theme_location' => 'main-nav',                // where it's located in the theme
+                            'container' => false,                           // remove nav container
+                            'container_class' => 'menu',                    // class of container (should you choose to use it)
+                            'menu' => __( 'The Main Menu', 'airtheme' ),    // nav name
+                            'menu_class' => 'main-menu flex items-center',  // adding custom nav classes
+                            'theme_location' => 'main-nav',                 // where it's located in the theme
                             )
                         ); ?>
 

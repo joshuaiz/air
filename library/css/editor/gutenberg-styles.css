@@ -1,0 +1,9 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+/* purgecss start ignore */
+@import "../partials/_base";
+/* add your styles or custom imports here */
+/* purgecss end ignore */
+
+@import 'tailwindcss/utilities';

@@ -30,9 +30,11 @@ require_once( 'library/customizer.php' );
 
 
 /************************************
- * Air Takeoff (theme init function)
+ * Air Takeoff
  * 
  * Now calling all seats/all rows.
+ * 
+ * Wheels up!
  * 
  ************************************/
 
@@ -41,7 +43,7 @@ add_action( 'after_setup_theme', 'air_takeoff' );
 function air_takeoff() {
 
     // editor style
-    add_editor_style( get_stylesheet_directory_uri() . '/library/css/editor-style.css' );
+    add_editor_style( get_stylesheet_directory_uri() . '/library/css/editor/editor-style.css' );
 
     // let's get language support going, if you need it
     load_theme_textdomain( 'airtheme', get_template_directory() . '/library/translation' );
@@ -480,7 +482,7 @@ add_action( 'enqueue_block_editor_assets', 'air_block_editor_styles' );
 
 function air_block_editor_styles() {
     
-    wp_enqueue_style( 'air-block-editor-styles', get_template_directory_uri( '/library/css/editor/editor.css' ), false, '1.0', 'all' );
+    wp_enqueue_style( 'air-block-editor-styles', get_template_directory_uri( '/library/css/editor/block-editor.css' ), false, '1.0', 'all' );
 
 }
 
@@ -1133,49 +1135,6 @@ function air_time_link() {
     );
 }
 endif;
-
-
-
-/** 
- * Dashboard Widget
- * 
- * Add a widget to the dashboard in the WP Admin.
- * Great to add instructions or info for clients.
- *  
- * If you don't need/want this, just remove it or 
- * comment it out.
- * 
- * Customize it...yeaaaahhh...but don't criticize it.
- * 
- * 
- */
-
-function air_add_dashboard_widgets() {
-
-    // Call the built-in dashboard widget function with our callback
-    wp_add_dashboard_widget(
-        'air_dashboard_widget', // Widget slug. Also the HTML id for styling in admin.scss.
-        __( 'Welcome to air!', 'airtheme' ), // Title.
-        'air_dashboard_widget_init' // Display function (below)
-    );
-}
-add_action( 'wp_dashboard_setup', 'air_add_dashboard_widgets' );
-
-// Create the function to output the contents of our Dashboard Widget.
-function air_dashboard_widget_init() {
-
-    // helper vars for links and images and stuffs.
-    $url = get_admin_url();
-    $img = get_template_directory_uri() . '/library/images/logo.svg';
-
-    echo '<div class="dashboard-image"><img src=' . $img . ' width="96" height="96" /></div>';
-    echo '<h3>You\'ve arrived at the WordPress Dashboard aka the \'Site Admin\' or \'WordPress Admin\' or simply the \'Admin\'.</h3>'; 
-    echo '<p><strong>Thank you for using the <a href="https://github.com/joshuaiz/air" target="_blank">air</a> theme by <a href="https://studio.bio/" target="_blank">studio.bio</a>!</strong></p>'; 
-    echo '<p>You can add your own message(s) or HTML here. Edit the <code>air_dashboard_widget_init()</code> function in <code>functions.php</code> at line 1225. Styles are in <code>admin.scss</code>. Or if you don\'t want or need this, just delete the function. Have it your way.</p>';
-    echo '<p>This is a great place for site instructions, links to help or resources, and to add your contact info for clients.</p>';
-    echo '<p>Make sure to remind them about the <code>Screen Options</code> tab on the top right. Often clients do not know about that and that they can show or hide or rearrange these Dashboard Widgets or show/hide boxes on any edit screen.</p>';
-    
-}
 
 
 // Live Reload for Grunt during development

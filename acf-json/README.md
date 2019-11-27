@@ -8,6 +8,6 @@ All you need is a folder in your theme called `acf-json`. ACF will create or upd
 
 Note that it doesn't save the *post data* saved with your fields but all of your field groups, fields, and location settings.
 
-Instead of forgetting to add this folder with each project, I'm now including it with Plate by default so it will be at the ready.
+Instead of forgetting to add this folder with each project, I'm now including it with the theme by default so it will be at the ready.
 
 If you don't use ACF or don't need this, just delete it. I mean, *GOSH*, it's just a folder.

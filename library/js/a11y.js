@@ -166,8 +166,8 @@ jQuery('document').ready(function($) {
         //serialize and store form data in a variable
         var formdata = commentForm.serialize()
 
-        $('#commentform .plate-comment-error').remove()
-        $('#commentform .plate-field-error').remove()
+        $('#commentform .air-comment-error').remove()
+        $('#commentform .air-field-error').remove()
         var hasError = false
         /**
          * Find all form fields with aria-required=true to test values before submitting.
@@ -184,12 +184,12 @@ jQuery('document').ready(function($) {
                 $(this)
                     .parent()
                     .append(
-                        ' <span class="plate-field-error" id="' +
+                        ' <span class="air-field-error" id="' +
                             id +
                             '">' +
                             labelText +
                             ': ' +
-                            plateComments.required +
+                            airComments.required +
                             '</span>'
                     )
                 hasError = true
@@ -199,16 +199,16 @@ jQuery('document').ready(function($) {
                 $.trim($(this).val()) != ''
             ) {
                 var value = $(this).val()
-                var valid = plateValidateEmail(value)
+                var valid = airValidateEmail(value)
                 if (!valid) {
                     $(this).attr('aria-describedby', id)
                     $(this)
                         .parent()
                         .append(
-                            ' <span class="plate-field-error"id="' +
+                            ' <span class="air-field-error"id="' +
                                 id +
                                 '">' +
-                                plateComments.emailInvalid +
+                                airComments.emailInvalid +
                                 '</span>'
                         )
                     hasError = true
@@ -222,8 +222,8 @@ jQuery('document').ready(function($) {
         if (hasError) {
             statusdiv
                 .html(
-                    '<p class="plate-comment-error">' +
-                        plateComments.error +
+                    '<p class="air-comment-error">' +
+                        airComments.error +
                         '</p>'
                 )
                 .focus()
@@ -235,7 +235,7 @@ jQuery('document').ready(function($) {
          */
         statusdiv.html(
             '<p class="yourtheme-comment-processing">' +
-                plateComments.processing +
+                airComments.processing +
                 '</p>'
         )
 
@@ -252,8 +252,8 @@ jQuery('document').ready(function($) {
                 // [localize]
                 statusdiv
                     .html(
-                        '<p class="plate-comment-error">' +
-                            plateComments.flood +
+                        '<p class="air-comment-error">' +
+                            airComments.flood +
                             '</p>'
                     )
                     .focus()
@@ -269,7 +269,7 @@ jQuery('document').ready(function($) {
 
                     statusdiv
                         .html(
-                            '<p class="plate-comment-success" >' +
+                            '<p class="air-comment-success" >' +
                                 status +
                                 '</p>'
                         )
@@ -293,7 +293,7 @@ jQuery('document').ready(function($) {
                      */
                     statusdiv
                         .html(
-                            '<p class="plate-comment-error" >' + status + '</p>'
+                            '<p class="air-comment-error" >' + status + '</p>'
                         )
                         .focus()
                     commentForm.find('textarea[name=comment]').val('')
@@ -310,7 +310,7 @@ jQuery('document').ready(function($) {
      *
      * @return boolean
      */
-    function plateValidateEmail(value) {
+    function airValidateEmail(value) {
         var filter = /^([\w-\+.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
         if (filter.test(value)) {
             return true
