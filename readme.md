@@ -12,16 +12,41 @@
 ### Quickstart
 1. Download or clone into `/wp-content/themes/`
 2. Run `npm install` to install the dependencies.
-3. Change the name of the directory from `air` to whatever you want and also change the comment header in `style.css` to your desired theme name.
+3. Change the name of the theme directory from `air` to whatever you want and also change the comment header in `style.css` to your desired theme name.
 4. Activate the theme in the WordPress admin.
 5. ❤️ Love.
 
 ### Developing with Air
-Run `npm run dev` or even better `npm run watch` which includes browser reloading.
+From the theme's directory, run `npm run dev` or even better `npm run watch` which includes browser reloading.
 
 As you update your files, Air will either hot reload or rebuild if new `.css` files are required.
 
+Visit `https://localhost:3000` to view your local site.
+
+### Deploying
 Run `npm run build` to generate a production build which uses `purgecss` to remove any styles from Tailwind CSS that you aren't using in your theme keeping it as lean as possible.
+
+Then upload your production build to your web server or deploy from GitHub. That's it!
+
+### Hot Reloading/Browser Refreshing
+While `laravel-mix` has hot reloading built-in, it is a known issue that it doesn't work with Tailwind CSS so we've added [Browsersync](https://www.browsersync.io) as a plugin that will reload the local development browser automagically when any PHP files are updated.
+
+To get it working, just change the `proxy` option in `webpack.mix.js` to your local development domain:
+
+```javascript
+.webpackConfig({
+        plugins: [
+            new BrowserSyncPlugin({
+                files: "**/*.php",
+                proxy: "https://yourdomain.local",
+                browser: "google chrome",
+                https: true,
+                open: false
+            })
+        ]
+    });
+```
+The browser will automatically refresh upon a new local build of CSS files when running `npm run watch`.
 
 ### Air + Tailwind CSS
 Air uses [Tailwind CSS](https://tailwindcss.com) which is a **utility-first** css framework and a whole new way to think about adding styles to your project.
@@ -75,7 +100,14 @@ This file is used to extend Tailwind's defaults as well as add custom defaults f
 
 See more info on [customizing Tailwind's config](https://tailwindcss.com/docs/configuration).
 
-#### What about SCSS?
+### Build Process
+The Tailwind/PostCSS build process is a bit slower than using `.scss` and preprocessors because whatever classes you use in your `.css` stylesheets, Tailwind has to scope through all of it's styles and apply them at build time.
+
+For this reason, we've commented out adding the `editor` and `block` stylesheets (for the content and Gutenberg editors) to the main build as they add considerable time to the process. Uncomment these when you've made changes and need to add them to the build but then comment them out for your main development workflow.
+
+Still, as you will be adding most of your styles to the markup in `.php` files, you won't need to rebuild the stylesheets as often as you might think.
+
+### What about SCSS?
 Our other WordPress starter theme [Plate](https://github.com/joshuaiz/plate) uses modular `.scss` files and media queries so definitely look at that if you want to use `.scss`.
 
 We love `.scss` however with Air and Tailwind CSS, you don't need it! In our `webpack.mix.js` file above, we are using `PostCSS` plugins that support imports, nesting, and autoprefixing just like SCSS. 
@@ -86,9 +118,12 @@ Here's the key concept:
 
 > **Most of your styles will be added as classes directly to the theme's HTML**
 
-As a result, we're using regular ol' `.css` files but you can nest selectors just like Sass/SCSS and don't need to worry about browser prefixing — that is all handled at the build step.
+As a result, we're using regular ol' `.css` files but you can import files and nest selectors just like Sass/SCSS and don't need to worry about browser prefixing — that is all handled at the build step.
 
-Yet really you will be writing less CSS which will speed up your development immensely. 
+Yet really you will be writing less CSS which will speed up your development immensely.
+
+### Advanced Options
+Coming soon...
 
 ### Try Air
 If you're still skeptical, just give Air + Tailwind CSS a try. The only way to really see the benefits of Tailwind CSS is to dive in and use it. I was skeptical too — but I was hooked after 15 minutes and never looked back.
