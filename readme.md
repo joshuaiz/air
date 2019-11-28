@@ -34,7 +34,7 @@ Once you learn Tailwind's classes "alphabet" and how to use it, the possibilitie
 
 Still, if you need to do something custom, you can always write your own `css` just as before. The beauty of Tailwind CSS though is that you will be writing way less `css`. 
 
-![](https:///studio.bio/images/tailwind1.png)
+![](https://studio.bio/images/tailwind1.png)
 
 The example above is from the Tailwind CSS website and shows a sample component created without any added `css` styles — everything is done in the HTML using Tailwind's classes. This example even sets responsive breakpoints and their respective styles right in the HTML. 
 
